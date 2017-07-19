@@ -1,0 +1,5 @@
+paket.bootstrapper.exe
+paket.targets
+paket.lock
+packages
+*.pdf
