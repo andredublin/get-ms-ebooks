@@ -13,7 +13,7 @@ let links = readLines "Ligman_eBooks_2017.txt"
 let downloadFile (link : string) =
     async {
         let url = link.Trim()
-        let! request = Http.AsyncRequestStream url
+        let! request = Http.AsyncRequestStream (url = url, httpMethod = "GET", timeout = System.Threading.Timeout.Infinite)
         let fileName = url.Substring(url.LastIndexOf("/"))
         let path = Environment.CurrentDirectory + "\\" + fileName + ".pdf"
         use outputFile = new FileStream(path, FileMode.Create)
